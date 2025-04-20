@@ -17,31 +17,31 @@
       <form class="needs-validation" novalidate>
         <div class="row g-3">
           <div class="col-md-4">
-            <label for="firstName" class="form-label">First Name</label>
+            <label for="first-name-input" class="form-label">First Name</label>
             <input type="text" class="form-control" id="first-name-input" required />
             <div class="invalid-feedback">First name required!</div>
           </div>
           <div class="col-md-4">
-            <label for="lastName" class="form-label">Last Name</label>
+            <label for="last-name-input" class="form-label">Last Name</label>
             <input type="text" class="form-control" id="last-name-input" required />
             <div class="invalid-feedback">Last name required!</div>
           </div>
           <div class="col-md-4">
-            <label for="email" class="form-label">Email</label>
+            <label for="email-input" class="form-label">Email Address</label>
             <input type="email" class="form-control" id="email-input" required />
-            <div class="invalid-feedback">Valid email required!</div>
+            <div class="invalid-feedback">Email address required</div>
           </div>
         </div>
 
         <div class="row g-3 my-2">
           <div class="col-md-6">
-            <label for="college" class="form-label">College Name</label>
+            <label for="college-input" class="form-label">College</label>
             <input type="text" id="college-input" class="form-control" required />
-            <div class="invalid-feedback">Please provide a valid college.</div>
+            <div class="invalid-feedback">Please provide a valid college</div>
           </div>
           <div class="col-md-3">
-            <label for="graduation-year" class="form-label">Graduation Year</label>
-            <select class="form-select" id="graduation-year" required>
+            <label for="grad-year-select" class="form-label">Graduation Year</label>
+           <select id="grad-year-select" class="form-select" aria-label="Default select example">
               <option selected disabled value="">Choose...</option>
               <option value="2020">2020</option>
               <option value="2021">2021</option>
@@ -51,18 +51,18 @@
             <div class="invalid-feedback">Please select a graduation year.</div>
           </div>
           <div class="col-md-3">
-            <label for="roll-no" class="form-label">Roll No.</label>
-            <input type="number" id="roll-no-input" class="form-control" required />
+            <label for="roll-no-input" class="form-label">Roll No.</label>
+            <input type="text" id="roll-no-input" class="form-control" required />
             <div class="invalid-feedback">Please provide a valid Roll no.</div>
           </div>
         </div>
 
         <div class="form-check my-2">
-          <input class="form-check-input" type="checkbox" value="" id="checkDefault" required />
-          <label class="form-check-label" for="checkDefault">
+          <input class="form-check-input" type="checkbox" value="" id="conditions-checkbox" required />
+          <label class="form-check-label" for="conditions-checkbox">
             Agree to terms and conditions
           </label>
-          <div class="invalid-feedback">You must agree before submitting.</div>
+          <div class="invalid-feedback">You must agree before submitting</div>
         </div>
 
         <button type="submit" class="btn btn-primary">Submit Form</button>
@@ -76,20 +76,24 @@
     ></script>
 
     <script>
-      (function () {
-        'use strict';
-
-        const forms = document.querySelectorAll('.needs-validation');
+      // Bootstrap validation JS
+      (() => {
+        "use strict";
+        const forms = document.querySelectorAll(".needs-validation");
 
         Array.from(forms).forEach((form) => {
-          form.addEventListener('submit', function (event) {
-            if (!form.checkValidity()) {
-              event.preventDefault();
-              event.stopPropagation();
-            }
+          form.addEventListener(
+            "submit",
+            (event) => {
+              if (!form.checkValidity()) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
 
-            form.classList.add('was-validated');
-          }, false);
+              form.classList.add("was-validated");
+            },
+            false
+          );
         });
       })();
     </script>
